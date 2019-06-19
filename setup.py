@@ -8,7 +8,9 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 # 'setup.py publish' shortcut.
 if sys.argv[-1] == 'publish':
+	os.system('rm -f dist/*')
 	os.system('python setup.py sdist')
+	os.system('twine upload dist/*')
 	sys.exit()
 
 
@@ -36,7 +38,7 @@ setup(
 
 	packages=[
 		'clpsz',
-		'clpsz.utils'
+		'clpsz.dummy',
 	],
 	package_dir={
 		'clpsz': 'clpsz'

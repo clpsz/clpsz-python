@@ -38,7 +38,6 @@ setup(
 
 	packages=[
 		'clpsz',
-		'clpsz.dummy',
 	],
 	package_dir={
 		'clpsz': 'clpsz'

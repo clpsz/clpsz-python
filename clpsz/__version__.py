@@ -7,7 +7,7 @@
 #        | |                  | |     __/ |
 #        |_|                  |_|    |___/
 __title__ = 'clpsz-python'
-__description__ = 'clpsz\' python utils'
+__description__ = 'clpsz\'s python utils'
 __url__ = 'https://github.com/clpsz/clpsz-python'
 __version__ = '0.0.6'
 __author__ = 'Pengpeng Zuo'

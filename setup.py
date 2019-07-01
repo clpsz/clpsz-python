@@ -48,7 +48,7 @@ setup(
 	install_requires=requires,
 	entry_points={
 		'console_scripts': [
+			'pflag=clpsz.pflag:pflag_main_helper',
 		]
 	}
 )
-

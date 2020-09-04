@@ -27,7 +27,19 @@ def get_edit_distance(str_a, str_b):
 	return distances[-1]
 
 
-def get_re_group_n(pattern, line, n):
+def get_re_group_n(pattern, _str, n):
 	p = re.compile(pattern)
-	m = p.match(line)
+	m = p.match(_str)
 	return m.group(n)
+
+
+def contains_re(pattern, _str):
+	return bool(re.search(pattern, _str))
+
+
+def match_re(pattern, _str):
+	return bool(re.match(pattern, _str))
+
+
+if __name__ == '__main__':
+	print match_re(r'a+b+$', 'aabbb')

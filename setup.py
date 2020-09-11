@@ -22,7 +22,11 @@ with open('README.md', 'r') as f:
 	readme = f.read()
 
 
-requires = []
+requires = [
+	'click',
+	'PyMySQL',
+	'pysftp',
+]
 
 
 setup(
@@ -48,7 +52,9 @@ setup(
 	install_requires=requires,
 	entry_points={
 		'console_scripts': [
-			'pflag=clpsz.pflag:pflag_main_helper',
+			'clpsz-pflag=clpsz.clpsz_pflag:main',
+			'clpsz-db-export=clpsz.clpsz_db_export:main',
+			'clpsz-sftp=clpsz.clpsz_sftp:main',
 		]
 	}
 )

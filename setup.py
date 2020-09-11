@@ -52,7 +52,7 @@ setup(
 	install_requires=requires,
 	entry_points={
 		'console_scripts': [
-			'clpsz-flag=clpsz.clpsz_pflag:main',
+			'clpsz-flag=clpsz.clpsz_flag:main',
 			'clpsz-db-export=clpsz.clpsz_db_export:main',
 			'clpsz-sftp=clpsz.clpsz_sftp:main',
 		]

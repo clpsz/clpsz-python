@@ -17,3 +17,7 @@ def iso_to_str(timestamp):
 def get_today_begin_timestamp():
 	today = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
 	return int(today.strftime("%s"))
+
+
+if __name__ == "__main__":
+	print datetime.now().strftime("%Y%m%d%H%M%S")

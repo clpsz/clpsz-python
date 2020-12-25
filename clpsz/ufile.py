@@ -1,4 +1,5 @@
 import os
+import re
 
 
 def read_file_as_list(file_path):
@@ -17,9 +18,36 @@ def read_file_as_list(file_path):
 	return res
 
 
+def read_file_as_list_and_keep_linesep(file_path):
+	res = []
+	with open(file_path, 'r') as f:
+		for line in f:
+			res.append(line)
+	return res
+
+
 def get_file_line_count(file_path):
 	count = 0
 	with open(file_path, 'r') as f:
 		for _ in f:
 			count += 1
 	return count
+
+
+def file_sub(file_path, old, new):
+	file_content_list = read_file_as_list_and_keep_linesep(file_path)
+	with open(file_path, 'w') as f:
+		for line in file_content_list:
+			f.write(line.replace(old, new))
+
+
+def file_sub_re(file_path, pattern, repl):
+	pattern = re.compile(pattern)
+	file_content_list = read_file_as_list_and_keep_linesep(file_path)
+	with open(file_path, 'w') as f:
+		for line in file_content_list:
+			f.write(pattern.sub(repl, line))
+
+
+if __name__ == '__main__':
+	file_sub_re('/tmp/aaa.txt', r'w.*r ', 'xixi')

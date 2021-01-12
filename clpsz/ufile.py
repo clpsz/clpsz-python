@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 
 
 def read_file_as_list(file_path):
@@ -47,6 +48,22 @@ def file_sub_re(file_path, pattern, repl):
 	with open(file_path, 'w') as f:
 		for line in file_content_list:
 			f.write(pattern.sub(repl, line))
+
+
+def yield_stdin_by_line():
+	k = 0
+	try:
+		buff = ''
+		while True:
+			buff += sys.stdin.read(1)
+			if buff.endswith(os.linesep):
+				line = buff[:-1]
+				yield line
+				buff = ''
+				k = k + 1
+	except KeyboardInterrupt:
+		sys.stdout.flush()
+		pass
 
 
 if __name__ == '__main__':

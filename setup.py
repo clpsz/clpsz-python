@@ -7,10 +7,11 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 
 # 'setup.py publish' shortcut.
-if sys.argv[-1] == 'publish':
+if sys.argv[-1] in ['publish', 'package']:
 	os.system('rm -f dist/*')
 	os.system('python setup.py sdist')
-	os.system('twine upload dist/*')
+	if sys.argv[-1] == 'publish':
+		os.system('twine upload -r internal dist/*')
 	sys.exit()
 
 
@@ -26,6 +27,7 @@ requires = [
 	'click',
 	'PyMySQL',
 	'pysftp',
+	'confluent_kafka',
 ]
 
 
@@ -55,6 +57,8 @@ setup(
 			'clpsz-flag=clpsz.clpsz_flag:main',
 			'clpsz-db-export=clpsz.clpsz_db_export:main',
 			'clpsz-sftp=clpsz.clpsz_sftp:main',
+			'clpsz-kafka-consumer=clpsz.clpsz_kafka_consumer:main',
+			'clpsz-canal-parser=clpsz.clpsz_canal_parser:main',
 		]
 	}
 )

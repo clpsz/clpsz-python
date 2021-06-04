@@ -19,6 +19,15 @@ def read_file_as_list(file_path):
 	return res
 
 
+def write_to_file(file_path, content):
+	"""
+	write_to_file(file_path, content) -> None
+	write content to file
+	"""
+	with open(file_path, 'w') as f:
+		f.write(content)
+
+
 def read_file_as_list_and_keep_linesep(file_path):
 	res = []
 	with open(file_path, 'r') as f:
@@ -67,4 +76,5 @@ def yield_stdin_by_line():
 
 
 if __name__ == '__main__':
-	file_sub_re('/tmp/aaa.txt', r'w.*r ', 'xixi')
+	# file_sub_re('/tmp/aaa.txt', r'w.*r ', 'xixi')
+	write_to_file("/tmp/ta", "haha\nxixi\n")

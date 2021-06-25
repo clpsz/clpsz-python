@@ -11,7 +11,7 @@ if sys.argv[-1] in ['publish', 'package']:
 	os.system('rm -f dist/*')
 	os.system('python setup.py sdist')
 	if sys.argv[-1] == 'publish':
-		os.system('twine upload -r internal dist/*')
+		os.system('twine upload --repository-url https://upload.pypi.org/legacy/ dist/*')
 	sys.exit()
 
 

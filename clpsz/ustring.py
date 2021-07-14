@@ -33,6 +33,13 @@ def get_re_group_n(pattern, _str, n):
 	return m.group(n)
 
 
+def get_re_group_multi(pattern, _str, _list):
+	p = re.compile(pattern)
+	m = p.match(_str)
+	res = [m.group(i) for i in _list]
+	return tuple(res)
+
+
 def contains_re(pattern, _str):
 	return bool(re.search(pattern, _str))
 

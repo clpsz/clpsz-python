@@ -9,7 +9,7 @@
 __title__ = 'clpsz-python'
 __description__ = 'clpsz\'s python utils'
 __url__ = 'https://github.com/clpsz/clpsz-python'
-__version__ = '0.0.16'
+__version__ = '0.0.17'
 __author__ = 'Pengpeng Zuo'
 __author_email__ = 'pengclpsz@gmail.com'
 __license__ = 'NO-LICENCE'

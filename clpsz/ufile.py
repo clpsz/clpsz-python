@@ -19,6 +19,14 @@ def read_file_as_list(file_path):
 	return res
 
 
+def read_file_as_list_and_keep_linesep(file_path):
+	res = []
+	with open(file_path, 'r') as f:
+		for line in f:
+			res.append(line)
+	return res
+
+
 def write_to_file(file_path, content):
 	"""
 	write_to_file(file_path, content) -> None
@@ -28,12 +36,13 @@ def write_to_file(file_path, content):
 		f.write(content)
 
 
-def read_file_as_list_and_keep_linesep(file_path):
-	res = []
+def read_from_file(file_path):
+	"""
+	write_to_file(file_path, content) -> None
+	write content to file
+	"""
 	with open(file_path, 'r') as f:
-		for line in f:
-			res.append(line)
-	return res
+		return f.read()
 
 
 def get_file_line_count(file_path):
@@ -59,6 +68,19 @@ def file_sub_re(file_path, pattern, repl):
 			f.write(pattern.sub(repl, line))
 
 
+# if delete=False, remove not match lines
+# else remove match lines
+def filter_file_re(file_path, pattern, delete=False):
+	pattern = re.compile(pattern)
+	file_content_list = read_file_as_list_and_keep_linesep(file_path)
+	with open(file_path, 'w') as f:
+		for line in file_content_list:
+			if not delete and pattern.search(line):
+				f.write(line)
+			elif delete and not pattern.search(line):
+				f.write(line)
+
+
 def yield_stdin_by_line():
 	k = 0
 	try:
@@ -77,4 +99,7 @@ def yield_stdin_by_line():
 
 if __name__ == '__main__':
 	# file_sub_re('/tmp/aaa.txt', r'w.*r ', 'xixi')
-	write_to_file("/tmp/ta", "haha\nxixi\n")
+	# write_to_file("/tmp/ta", "haha\nxixi\n")
+
+	filter_file_re('/Users/clpsz/Desktop/tmp/teller9.tl9_orgbasic__insert1.sql', "^INSERT INTO")
+

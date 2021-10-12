@@ -52,11 +52,6 @@ setup(
 	entry_points={
 		'console_scripts': [
 			'clpsz-flag=clpsz.clpsz_flag:main',
-			'clpsz-db-export=clpsz.clpsz_db_export:main',
-			'clpsz-sftp=clpsz.clpsz_sftp:main',
-			'clpsz-kafka-consumer=clpsz.clpsz_kafka_consumer:main',
-			'clpsz-canal-parser=clpsz.clpsz_canal_parser:main',
-			'clpsz-word-count=clpsz.clpsz_word_count:main',
 		]
 	}
 )

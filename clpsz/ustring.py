@@ -49,4 +49,4 @@ def match_re(pattern, _str):
 
 
 if __name__ == '__main__':
-	print match_re(r'a+b+$', 'aabbb')
+	print(match_re(r'a+b+$', 'aabbb'))

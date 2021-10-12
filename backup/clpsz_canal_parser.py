@@ -2,7 +2,7 @@ import os
 import sys
 import json
 import click
-from .udatetime import millisecond_timestamp_to_str
+from clpsz.udatetime import millisecond_timestamp_to_str
 
 
 @click.command()

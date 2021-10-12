@@ -25,9 +25,6 @@ with open('README.md', 'r') as f:
 
 requires = [
 	'click',
-	'PyMySQL',
-	'pysftp',
-	'confluent_kafka',
 ]
 
 
